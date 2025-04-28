@@ -1,0 +1,100 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #7a1831;
+    user-select: none;
+}
+.container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+   background: linear-gradient(325deg, #da3b3b 16.62%, #3e99e4 80%);
+    padding: 40px 60px;
+}  
+
+h2{
+    font-size: 3em;
+    color: white;
+    text-decoration: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.game {
+    width: 430px;
+    height: 430px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+    perspective: 500px;
+}
+
+.item { 
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;  
+    font-size: 3em;
+    transform: rotateY(180deg);
+    transition: 0.25s;
+}
+.item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #7a1831;
+    transition: 0.25s;
+    transform: rotateY(0deg);
+    backface-visibility: hidden;
+}
+
+.item.boxOpen {
+    transform: rotateY(0deg);
+}
+
+.boxOpen::after,
+.boxMatch::after {
+    transform: rotateY(180deg);
+}
+.alert-box {
+    display: none;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f8d7da;
+    text-transform: uppercase;
+    border: 1px solid #f5c6cb;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  } 
+
+.alert-box button {
+    margin: 10px;
+    background-color: #721c24;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5em;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+
+  .alert-box button:hover {
+    background-color: #da3b3b;
+  }
